@@ -4,12 +4,6 @@
 
     <!-- Главный экран с видео фоном -->
     <section class="main-screen" data-aos="fade-up">
-      <section class="video-background">
-        <video autoplay muted loop class="background-video">
-          <source src="assets/images/coffe-video.mov" type="video/mov" />
-          Ваш браузер не поддерживает видео.
-        </video>
-      </section>
       <div class="main-screen__content" data-aos="fade-up" data-aos-delay="300">
         <h1>Добро пожаловать в нашу кофейню!</h1>
         <p>Лучшие сорта кофе, уютная атмосфера и невероятные десерты.</p>
@@ -142,7 +136,7 @@ onMounted(() => {
   background-color: #cca763;
   font-family: "Lora", serif; /* Шрифт для основного текста */
 }
-/* Главный экран с видео фоном */
+/* Главный экран с фоном */
 .main-screen {
   position: relative;
   height: 70vh; /* Высота блока */
@@ -151,8 +145,11 @@ onMounted(() => {
   align-items: center;
   color: white;
   text-align: center;
+  background-image: url("https://t3.ftcdn.net/jpg/01/36/51/90/360_F_136519023_GHLiQY7LND4ylpw8XPPZH8oDYR4Vbbsi.jpg"); /* Путь к изображению фона */
+  background-size: cover; /* Покрытие всего экрана */
+  background-position: center; /* Центрирование изображения */
+  background-repeat: no-repeat; /* Запрещаем повторение фона */
 }
-
 .video-background {
   position: absolute;
   top: 0;
@@ -174,18 +171,19 @@ onMounted(() => {
   z-index: 1; /* Текст всегда на переднем плане */
   max-width: 600px;
 }
-
 .main-screen__content h1 {
   font-size: 2.5rem;
   margin-bottom: 15px;
   font-weight: 700;
   font-family: "Dancing Script", cursive; /* Рукописный шрифт для заголовка */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Добавляем тень для контраста (обводка) */
 }
 
 .main-screen__content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
   font-family: "Lora", serif; /* Для текста в блоке */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Добавляем тень для текста */
 }
 /* Продукты (Напитки, Десерты, Закуски) */
 .product-gallery {

@@ -1,24 +1,42 @@
 <template>
   <div class="menu-page">
     <Header />
-    <h2>Наше меню</h2>
+    <h2 data-aos="fade-up" data-aos-duration="800">Наше меню</h2>
     <div class="menu-categories">
       <!-- Кнопка для Напитков -->
-      <router-link to="/menu/drinks" class="menu-item drinks">
+      <router-link
+        to="/menu/drinks"
+        class="menu-item drinks"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        data-aos-delay="100"
+      >
         <div class="menu-overlay">
           <h3>Напитки</h3>
         </div>
       </router-link>
 
       <!-- Кнопка для Закусок -->
-      <router-link to="/menu/snacks" class="menu-item snacks">
+      <router-link
+        to="/menu/snacks"
+        class="menu-item snacks"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+      >
         <div class="menu-overlay">
-          <h3>Закуски</h3>
+          <h3>Торты</h3>
         </div>
       </router-link>
 
       <!-- Кнопка для Десертов -->
-      <router-link to="/menu/desserts" class="menu-item desserts">
+      <router-link
+        to="/menu/desserts"
+        class="menu-item desserts"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        data-aos-delay="300"
+      >
         <div class="menu-overlay">
           <h3>Десерты</h3>
         </div>
@@ -29,8 +47,22 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
 import Header from "~/components/Header.vue";
 import Footer from "~/components/Footer.vue";
+
+// Инициализация AOS только на клиентской стороне
+onMounted(() => {
+  if (typeof window !== "undefined") {
+    import("aos").then((AOS) => {
+      AOS.default.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+      });
+    });
+  }
+});
 </script>
 
 <style scoped>
@@ -46,6 +78,7 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* Стили для контейнера с категориями */
 .menu-categories {
   display: flex;
   justify-content: space-between;
@@ -61,6 +94,7 @@ h2 {
   border-radius: 5px;
   overflow: hidden;
   text-decoration: none;
+  transition: transform 0.3s ease-in-out; /* Плавное увеличение */
 }
 
 .menu-item .menu-overlay {
@@ -107,5 +141,10 @@ h2 {
 
 .menu-item:hover .menu-overlay {
   background-color: rgba(0, 0, 0, 0.7); /* Темнее фон при наведении */
+}
+
+/* Эффект для увеличения элемента меню при прокрутке с AOS */
+.menu-item[data-aos="zoom-in"] {
+  transition: transform 0.6s ease-in-out;
 }
 </style>
