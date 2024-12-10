@@ -18,6 +18,9 @@ yarn install
 
 # bun
 bun install
+
+# aos
+npm install aos
 ```
 
 ## Development Server
