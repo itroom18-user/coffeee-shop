@@ -195,6 +195,9 @@ import "aos/dist/aos.css";
 import small from "@/assets/images/small.png";
 import medium from "@/assets/images/medium.png";
 import large from "@/assets/images/large.png";
+import juice from "@/assets/images/j.png";
+import tea from "@/assets/images/tea.png";
+import coffe from "@/assets/images/coffee1.jpg";
 
 // Стаканы
 const glasses = [
@@ -205,9 +208,9 @@ const glasses = [
 
 // Напитки
 const drinks = [
-  { id: 1, name: "Кофе", image: "assets/images/coffee.jpg" },
-  { id: 2, name: "Сок", image: "assets/images/juice.jpg" },
-  { id: 3, name: "Чай", image: "assets/images/tea.jpg" },
+  { id: 1, name: "Кофе", image: coffe },
+  { id: 2, name: "Сок", image: juice },
+  { id: 3, name: "Чай", image: tea },
 ];
 
 // Виды кофе
